@@ -117,7 +117,7 @@ export default function User() {
           <ComercioComponents
             valorMenur={1}
             nome="Italo"
-            descricao="Loja de artigo festa crianças e muito mais "
+            descricao="Loja de artigo festa crianças e muito maiiiiis "
           />
         </View>
 
