@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Text, View , SafeAreaView, Platform} from "react-native";
+import { Text, View, SafeAreaView, Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StatusBar } from "expo-status-bar";
@@ -12,26 +12,31 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <SafeAreaView><StatusBar style={Platform.OS == 'android' ? "light" : "auto" } backgroundColor={Platform.OS == 'android' ? "#027381"  : "#ffff" }/></SafeAreaView>
-      
+      <SafeAreaView>
+        <StatusBar
+          style={Platform.OS == "android" ? "light" : "auto"}
+          backgroundColor={Platform.OS == "android" ? "#fb6d6c" : "#fb6d6c"}
+        />
+      </SafeAreaView>
+
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
             if (route.name === "TimeLine") {
-              iconName = focused ? "futbol-o" : "futbol-o";
-            } else if (route.name === "Lista") {
-              iconName = focused ? "Comercio" : "align-left";
+              iconName = focused ? "home" : "home";
+            } else if (route.name === "Comercio") {
+              iconName = focused ? "shopping-basket" : "shopping-basket";
             } else {
-              iconName = focused ? "gear" : "gear";
+              iconName = focused ? "user" : "user-o";
             }
             // You can return any component that you like here!
             return <FontAwesome name={iconName} size={24} color={color} />;
           },
 
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "#fb6d6c",
+          tabBarInactiveTintColor: "#c3c8d3",
         })}
       >
         <Tab.Screen
