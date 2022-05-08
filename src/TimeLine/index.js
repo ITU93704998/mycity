@@ -1,4 +1,4 @@
-import * as React from "react";
+import { React, useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -18,6 +18,7 @@ import Viagens from "../Components/viagens";
 import Servicos from "../Components/servicos";
 
 export default function TimeLine() {
+  const [data, setData] = useState([]);
   const DATA = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -62,6 +63,7 @@ export default function TimeLine() {
       descricao: "Produtos selecionados",
     },
   ];
+
   return (
     <SafeAreaView
       style={{ flex: 1, marginTop: Platform.OS == "android" ? 30 : 0 }}
@@ -168,11 +170,11 @@ export default function TimeLine() {
               width: "100%",
             }}
             showsHorizontalScrollIndicator={false}
-            data={DATA}
+            data={data}
             horizontal
             renderItem={({ item }) => (
               <PromocaoDia
-                loja={item.loja}
+                loja={item.nome}
                 valor={item.valor}
                 descricao={item.descricao}
               />
